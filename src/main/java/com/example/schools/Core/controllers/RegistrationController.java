@@ -1,4 +1,4 @@
-package com.example.schools.Core.Controllers;
+package com.example.schools.Core.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

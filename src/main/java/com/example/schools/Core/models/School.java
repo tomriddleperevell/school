@@ -1,6 +1,4 @@
-package com.example.schools.Core.Models;
-
-import lombok.Data;
+package com.example.schools.Core.models;
 
 import javax.persistence.*;
 
