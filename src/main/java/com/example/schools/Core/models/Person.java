@@ -5,17 +5,22 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "person")
 @Data
-@Table(name = "schools")
-public class School {
+public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, unique = true)
-	private Long Id;
+	private Long id;
 
 	@Column(name = "name")
 	private String name;
 
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "personal_no")
+	private String PersonalNo;
 
 
 }
