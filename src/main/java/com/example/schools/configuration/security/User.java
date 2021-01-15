@@ -1,11 +1,13 @@
 package com.example.schools.configuration.security;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,7 +17,7 @@ public class User {
 	private Long Id;
 	private String userName;
 	private String password;
-
+	private List<Authority> authorities;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usersSeq")
@@ -43,5 +45,21 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@JoinTable(
+			name = "user_authorities",
+			joinColumns = { @JoinColumn(name = "user_id",referencedColumnName = "id") },
+			inverseJoinColumns = { @JoinColumn(name = "authority_id",referencedColumnName = "id") }
+	)
+
+	@JsonManagedReference
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
 	}
 }
