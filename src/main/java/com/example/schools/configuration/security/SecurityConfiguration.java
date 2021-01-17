@@ -32,11 +32,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 //				antMatchers("/manager.html").hasRole("MANAGER")
 //				.antMatchers("/","/index.html").hasAnyRole("CLIENT","MANAGER","OPERATOR")
-//				.antMatchers("/operator.html").hasRole("OPERATOR")
+				.antMatchers("/register").hasRole("OPERATOR")
 				.and()
 				.formLogin()
 				.loginPage("/index.html")
 				.loginProcessingUrl("/login")
+				.successHandler(new CustomAuthenticationSuccessHandler())
+				.failureHandler(new CustomAuthenticationFailureHandler())
 				.permitAll()
 				.and()
 				.csrf().disable();//not a good idea for production, only for demo purposes
@@ -44,4 +46,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
 //        http.headers().frameOptions().disable();
 	}
+
 }

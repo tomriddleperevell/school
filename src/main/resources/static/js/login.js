@@ -8,13 +8,11 @@ function login() {
 		data: {"username":userName,"password":password},
 		type:'POST',
 		success: function(response){
-			console.log(arguments);
 			console.log(response);
-			if(response.statusCode !==0){
-				alert(response.description);
-			}else{
-				window.location.href ="/mainPage.html";
-			}
+			window.location.href ="/mainPage.html";
+		},
+		error: function () {
+			console.log("atastas");
 		}
 	});
 }
