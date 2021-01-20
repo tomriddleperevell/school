@@ -37,3 +37,4 @@ create table user_authorities
 
 create unique index user_authorities_user_id_authority_id_uindex
 	on user_authorities (user_id, authority_id);
+

@@ -3,6 +3,7 @@ package com.example.schools.Core.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +17,9 @@ public class School {
 	@Column(name = "name")
 	private String name;
 
+	private Principal principal;
+
+	private List<Teacher> teachers;
 
 
 }

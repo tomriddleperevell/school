@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-@SequenceGenerator(name = "usersSeq", sequenceName = "USERS_SEQ", allocationSize = 1)
+//@SequenceGenerator(name = "usersSeq", sequenceName = "USERS_SEQ", allocationSize = 1)
 public class User {
 	private Long Id;
 	private String userName;
@@ -20,7 +20,7 @@ public class User {
 	private List<Authority> authorities;
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usersSeq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return Id;
 	}
