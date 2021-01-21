@@ -10,6 +10,7 @@ import java.util.Date;
 public class Principal extends PersonImpl {
 	//private Long id;
 	private Integer yearsInOffice;
+	private School school;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +30,14 @@ public class Principal extends PersonImpl {
 
 	public void setYearsInOffice(Integer yearsInOffice) {
 		this.yearsInOffice = yearsInOffice;
+	}
+
+	@OneToOne(mappedBy = "principal")
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
 	}
 }

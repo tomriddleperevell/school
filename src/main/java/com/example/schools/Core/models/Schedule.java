@@ -1,20 +1,19 @@
 package com.example.schools.Core.models;
 
-import javax.persistence.*;
 
-public class Student extends PersonImpl {
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "schedule")
+public class Schedule {
 	private School school;
+	private List<Class> classes;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, unique = true)
-	public Long getId() {
-		return id;
-	};
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	private Long Id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "school_id")
@@ -24,5 +23,14 @@ public class Student extends PersonImpl {
 
 	public void setSchool(School school) {
 		this.school = school;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
+	public List<Class> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<Class> classes) {
+		this.classes = classes;
 	}
 }

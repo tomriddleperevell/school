@@ -16,7 +16,6 @@ public class CustomAuthenticationSuccessHandler implements org.springframework.s
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		ObjectMapper mapper = new ObjectMapper();
-		ArrayNode arrayNode = mapper.createArrayNode();
 
 		ObjectNode childNode = mapper.createObjectNode();
 		MyUserDetails user = (MyUserDetails) authentication.getPrincipal();
