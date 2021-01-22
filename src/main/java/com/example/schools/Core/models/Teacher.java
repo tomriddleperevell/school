@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "teachers")
 public class Teacher extends PersonImpl {
 	private School school;
-	private Class teachingClass;
+	private Subject teachingSubject;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,11 +30,11 @@ public class Teacher extends PersonImpl {
 	}
 
 	@OneToOne(mappedBy = "teacher")
-	public Class getTeachingClass() {
-		return teachingClass;
+	public Subject getTeachingSubject() {
+		return teachingSubject;
 	}
 
-	public void setTeachingClass(Class teachingClass) {
-		this.teachingClass = teachingClass;
+	public void setTeachingSubject(Subject teachingSubject) {
+		this.teachingSubject = teachingSubject;
 	}
 }

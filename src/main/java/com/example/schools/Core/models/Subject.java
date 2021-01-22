@@ -3,11 +3,12 @@ package com.example.schools.Core.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "class")
-public class Class {
+@Table(name = "subjects")
+public class Subject {
 	private Schedule schedule;
 	private String name;
 	private Teacher teacher;
+	private Boolean active;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,5 +42,14 @@ public class Class {
 
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+	}
+
+	@Column(name = "active")
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

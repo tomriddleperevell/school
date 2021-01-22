@@ -5,15 +5,26 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "schedule")
+@Table(name = "schedules")
 public class Schedule {
 	private School school;
-	private List<Class> classes;
+	private List<Subject> subjects;
+	private String name;
+	private Boolean active;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, unique = true)
 	private Long Id;
+
+	@Column(name = "name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "school_id")
@@ -26,11 +37,20 @@ public class Schedule {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
-	public List<Class> getClasses() {
-		return classes;
+	public List<Subject> getSubjects() {
+		return subjects;
 	}
 
-	public void setClasses(List<Class> classes) {
-		this.classes = classes;
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
+
+	@Column(name = "active")
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

@@ -18,7 +18,7 @@ public class School {
 	private Boolean active;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, unique = true)
 	public Long getId() {
 		return Id;

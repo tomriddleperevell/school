@@ -5,3 +5,5 @@ insert into authorities(authority_name,active) values
 insert into user_authorities(user_id,authority_id)
 select u.id,au.id
 from users u,authorities au;
+
+insert into schools(id,name) value (1,'ფიზმათი')

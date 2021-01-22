@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "principal")
+@Table(name = "principals")
 public class Principal extends PersonImpl {
 	//private Long id;
 	private Integer yearsInOffice;
