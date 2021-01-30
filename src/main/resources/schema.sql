@@ -115,3 +115,19 @@ create table subjects
 
 create unique index subjects_id_uindex
 	on subjects (id);
+
+alter table schools
+	add principal_id bigint not null;
+
+alter table schools
+	add active boolean;
+
+alter table schools
+	add city_name varchar(256);
+
+alter table schools
+	add region varchar(256);
+
+alter table schools
+	add number INTEGER;
+

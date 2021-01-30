@@ -1,5 +1,7 @@
 package com.example.schools.Core.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +10,6 @@ import java.util.Date;
 @Entity
 @Table(name = "principals")
 public class Principal extends PersonImpl {
-	//private Long id;
 	private Integer yearsInOffice;
 	private School school;
 
@@ -33,6 +34,7 @@ public class Principal extends PersonImpl {
 	}
 
 	@OneToOne(mappedBy = "principal")
+	@JsonBackReference
 	public School getSchool() {
 		return school;
 	}

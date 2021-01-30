@@ -71,7 +71,7 @@ public class PersonImpl implements Person {
 	}
 
 	@Override
-	@Column(name = "gender_id")
+	@Column(name = "gender")
 	@Enumerated(EnumType.ORDINAL)
 	public Gender getGender() { return gender; }
 

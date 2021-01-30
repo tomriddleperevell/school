@@ -1,7 +1,13 @@
 package com.example.schools.Core.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
+@Entity
+@Table(name = "students")
 public class Student extends PersonImpl {
 	private School school;
 
@@ -18,6 +24,8 @@ public class Student extends PersonImpl {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "school_id")
+	//@JsonIgnore
+	@JsonBackReference
 	public School getSchool() {
 		return school;
 	}

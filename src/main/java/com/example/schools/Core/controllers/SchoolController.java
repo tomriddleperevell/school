@@ -20,7 +20,7 @@ public class SchoolController {
 	}
 
 	@GetMapping
-	public List<School> searchSchools(String name) {
+	public List<School> searchSchools(String name, String region, String city) {
 		return schoolService.searchSchools(name);
 	}
 

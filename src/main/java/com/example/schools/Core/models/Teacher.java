@@ -1,12 +1,17 @@
 package com.example.schools.Core.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "teachers")
 public class Teacher extends PersonImpl {
 	private School school;
-	private Subject teachingSubject;
+	private List<Subject> teachingSubjects;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +26,8 @@ public class Teacher extends PersonImpl {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "school_id")
+	//@JsonIgnore
+	@JsonBackReference
 	public School getSchool() {
 		return school;
 	}
@@ -29,12 +36,12 @@ public class Teacher extends PersonImpl {
 		this.school = school;
 	}
 
-	@OneToOne(mappedBy = "teacher")
-	public Subject getTeachingSubject() {
-		return teachingSubject;
+	@OneToMany(mappedBy = "teacher")
+	public List<Subject> getTeachingSubjects() {
+		return teachingSubjects;
 	}
 
-	public void setTeachingSubject(Subject teachingSubject) {
-		this.teachingSubject = teachingSubject;
+	public void setTeachingSubjects(List<Subject> teachingSubjects) {
+		this.teachingSubjects = teachingSubjects;
 	}
 }

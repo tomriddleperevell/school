@@ -2,9 +2,239 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Welcome to the main page</title>
+	<title>Homepage`</title>
+	<link rel="stylesheet" href = "./css/homepage.css">
+	<link rel="stylesheet" href = "./css/navbar.css">
 </head>
 <body>
-<p> well well well</p>
+<div id="nav">
+	<ul id="navbar">
+		<li><input type="text" placeholder="search people"></li>
+		<li><a class="active" href="#home">Donald Trump</a></li>
+		<li><a href="wall.html">Home</a></li>
+		<li><a href="friendRequests.html">Friend Requests</a></li>
+		<li><a href="MyGroups.html">My Groups</a></li>
+
+	</ul>
+</div>
+
+<div id="header">
+	<img src = "images/trump.jfif" width="200px" height="200px">
+	<span>Donald Trump</span>
+	<div id="add_friend">
+		<button >Add Friend</button><br>
+
+	</div>
+
+	<div id="already_friends">
+		<button >Friend</button><br>
+		<div id="already_friends_options" style="display:none">
+			<input type="radio" name="friend_type" value="0"> Close friend<br>
+			<input type="radio" name="friend_type" value="1">Acquaintance<br>
+			<button id="unfriend">UnFriend</button>
+		</div>
+	</div>
+
+
+</div>
+
+<div id="bio">
+	<div id="birth_place">
+		<span>Place of Birth: </span>
+		<span>United States</span>
+	</div>
+
+	<div id="work_place">
+		<span>Place of work:  </span>
+		<span>45th president of  US</span>
+	</div>
+
+	<div id="college">
+		<span>Went in:  </span>
+		<span>Stanford</span>
+	</div>
+
+	<div id="relationship">
+		<span>relationship status:  </span>
+		<span>single</span>
+	</div>
+
+	<button id="edit_profile_info">Edit</button>
+</div>
+
+<div id="posts">
+	<div id="makePost">
+		<img src="images/trump.jfif">
+
+		<textarea   rows="4" cols="54" placeholder="write you post here"></textarea>
+		<button id="publishPost">Post</button>
+		<button id="clearPost">Clear</button>
+	</div>
+
+
+	<div class="post">
+		<div class="postHeader  ">
+			<img src="images/hilary.jpg" >
+			<a href = "#">kilary</a>
+		</div>
+		<div class="postComment">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+
+
+
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+
+		</div>
+
+		<div class="postReply">
+			<input type="text" placeholder="write comment">
+		</div>
+	</div>
+
+	<div class="post">
+		<div class="postHeader">
+			<img src="images/obama.jpg">
+			<a href="#">barack Obama</a>
+		</div>
+		<div class="postComment">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+		</div>
+
+		<div class="postReply">
+			<input type="text" placeholder="write comment">
+		</div>
+	</div>
+
+	<div class="post">
+		<div class="postHeader">
+			<img src="images/obama.jpg">
+			<a href="#">barack Obama</a>
+		</div>
+		<div class="postComment">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+		</div>
+
+		<div class="postReply">
+			<input type="text" placeholder="write comment">
+		</div>
+
+	</div>
+
+	<div class="post">
+		<div class="postHeader">
+			<img src="images/obama.jpg">
+			<span>
+                  <a href="#">barack Obama</a>
+
+                </span>
+		</div>
+		<div class="postComment">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+		</div>
+
+		<div class="postReply">
+			<input type="text" placeholder="write comment">
+		</div>
+
+	</div>
+
+	<div class="post">
+		<div class="postHeader">
+			<img src="images/obama.jpg">
+			<a href="#">barack Obama</a>
+		</div>
+		<div class="postComment">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+				elit. Aenean commodo ligula eget dolor. Aenean
+				massa.</p>
+
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+		</div>
+
+		<div class="postReply">
+			<input type="text" placeholder="write comment">
+		</div>
+	</div>
+
+</div>
+
+<div id="friends">
+	<fieldset>
+		<legend>Friends:</legend>
+		<div class = "friend">
+			<div class="friendHeader">
+				<img src="images/obama.jpg">
+				<a href="#">barack Obama</a>
+			</div>
+		</div>
+
+		<div class = "friend">
+			<div class="friendHeader">
+				<img src="images/obama.jpg">
+				<a href="#">barack Obama</a>
+			</div>
+		</div>
+
+	</fieldset>
+
+</div>
+
+<script>
+	document.querySelector("#already_friends").addEventListener('mouseover',function (evt) {
+		console.log("sd");
+		document.getElementById("already_friends_options").style.display = "unset";
+	});
+
+	document.querySelector("#already_friends").addEventListener('mouseout',function (evt) {
+		console.log("out");
+		document.getElementById("already_friends_options").style.display = "none";
+	});
+</script>
+
 </body>
 </html>

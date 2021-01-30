@@ -1,13 +1,22 @@
 package com.example.schools.Core.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "schedules")
 public class Schedule {
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "school_id", referencedColumnName = "id")
+	@JsonBackReference
+	//@JsonIgnore
 	private School school;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
 	private List<Subject> subjects;
 	private String name;
 	private Boolean active;
@@ -26,8 +35,6 @@ public class Schedule {
 		this.name = name;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "school_id")
 	public School getSchool() {
 		return school;
 	}
@@ -36,7 +43,6 @@ public class Schedule {
 		this.school = school;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
 	public List<Subject> getSubjects() {
 		return subjects;
 	}
