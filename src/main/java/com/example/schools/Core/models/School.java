@@ -1,9 +1,7 @@
 package com.example.schools.Core.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -19,9 +17,11 @@ public class School {
 	private List<Student> students;
 	private List<Schedule> schedule;
 	private Boolean active;
-	private String cityName;
-	private String region;
+	private City city;
+	private Region region;
 	private Integer number;
+	private Long cityId;
+	private Long regionId;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,21 +85,23 @@ public class School {
 		this.schedule = schedule;
 	}
 
-	@Column(name = "city_name")
-	public String getCityName() {
-		return cityName;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "city_id", insertable = false, updatable = false)
+	public City getCity() {
+		return city;
 	}
 
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
-	@Column(name = "region")
-	public String getRegion() {
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "region_id", insertable = false, updatable = false)
+	public Region getRegion() {
 		return region;
 	}
 
-	public void setRegion(String region) {
+	public void setRegion(Region region) {
 		this.region = region;
 	}
 
@@ -110,6 +112,24 @@ public class School {
 
 	public void setNumber(Integer number) {
 		this.number = number;
+	}
+
+	@Column(name = "city_id")
+	public Long getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Long cityId) {
+		this.cityId = cityId;
+	}
+
+	@Column(name = "region_id")
+	public Long getRegionId() {
+		return regionId;
+	}
+
+	public void setRegionId(Long regionId) {
+		this.regionId = regionId;
 	}
 
 	@Column(name = "active")

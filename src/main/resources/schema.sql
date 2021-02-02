@@ -131,3 +131,31 @@ alter table schools
 alter table schools
 	add number INTEGER;
 
+alter table schools change city_name city_id bigint;
+
+alter table schools change region region_id bigint;
+
+
+create table cities
+(
+	id int auto_increment,
+	name varchar(128) not null,
+	active boolean default true not null,
+	constraint authorities_pk
+		primary key (id)
+);
+
+create unique index cities_name_uindex
+	on cities (name);
+
+create table regions
+(
+	id int auto_increment,
+	name varchar(128) not null,
+	active boolean default true not null,
+	constraint authorities_pk
+		primary key (id)
+);
+
+create unique index regions_name_uindex
+	on regions (name);

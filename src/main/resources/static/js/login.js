@@ -9,7 +9,7 @@ function login() {
 		type:'POST',
 		success: function(response){
 			console.log(response);
-			window.location.href ="/mainPage.html";
+			window.location.href ="/searchPage.html";
 		},
 		error: function () {
 			console.log("atastas");
