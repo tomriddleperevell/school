@@ -35,11 +35,20 @@ public class SchoolServiceImpl implements SchoolService {
 	}
 
 	@Override
-	public List<School> searchSchools(String name) {
+	public List<School> searchSchools(String name,Integer number, Long region, Long city) {
 		return schoolRepository.findAll((root, query, cb) -> {
 			Predicate predicate = cb.isTrue(root.get("active"));
 			if (name != null && !name.isEmpty()) {
 				predicate = cb.and(predicate, cb.equal(root.get("name"), name));
+			}
+			if (number != null) {
+				predicate = cb.and(predicate, cb.equal(root.get("number"), number));
+			}
+			if (region != null) {
+				predicate = cb.and(predicate, cb.equal(root.get("region"), region));
+			}
+			if (city != null) {
+				predicate = cb.and(predicate, cb.equal(root.get("city"), city));
 			}
 			return predicate;
 		});

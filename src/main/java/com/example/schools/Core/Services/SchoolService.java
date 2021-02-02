@@ -11,5 +11,5 @@ public interface SchoolService {
 
 	List<School> getAll();
 
-	List<School> searchSchools(String name);
+	List<School> searchSchools(String name, Integer number, Long region, Long city);
 }

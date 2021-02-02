@@ -26,7 +26,7 @@ public class SchoolController {
 
 	@GetMapping
 	public List<School> searchSchools(@RequestParam String name,@RequestParam(required = false) Integer number,@RequestParam(required = false) Long region,@RequestParam(required = false) Long city) {
-		return schoolService.searchSchools(name);
+		return schoolService.searchSchools(name, number, region, city);
 	}
 
 	@GetMapping("{id}")
