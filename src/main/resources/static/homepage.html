@@ -1,0 +1,169 @@
+<!--<%@ page import="servlet.ServletKey" %>-->
+<!--<%@ page import="models.User" %>-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Homepage`</title>-->
+<!--<link rel="stylesheet" href = "homepage.css">-->
+
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<%-->
+<!--Object attribute = request.getSession().getAttribute(ServletKey.CURRENT_USER);-->
+<!--if (attribute == null) {-->
+<!--response.sendRedirect(ServletKey.INDEX_JSP);-->
+<!--return;-->
+<!--}-->
+<!--User user = (User) attribute;-->
+<!--%>-->
+
+
+
+<!--<script src="handlebars-v4.1.2.js"></script>-->
+
+<link rel="stylesheet" href = "navbar.css">
+<div id="nav">
+	<ul id="navbar">
+		<li><input type="text" placeholder="search people"></li>
+		<li><a href="#!/homepage">home</a></li>
+		<li><a href="#!/wall">wall</a></li>
+		<li><a href="#!/friendRequests">Friend Requests</a></li>
+		<li><a href="#!myGroups">My Groups</a></li>
+		<li><a href="#!allGroups">All Groups</a></li>
+	</ul>
+</div>
+
+<div id="header">
+	<img src = "images/trump.jfif" width="200px" height="200px">
+	<span id="username"></span>
+	<div id="add_friend_container" >
+		<button id="add_friend" >Add Friend</button><br>
+
+	</div>
+
+	<div id="already_friends_container">
+		<button >Friend</button><br>
+		<div id="already_friends_options" style="display:none">
+			<input type="radio" name="friend_type" value="0"> Close friend<br>
+			<input type="radio" name="friend_type" value="1">Acquaintance<br>
+			<button id="unfriend">UnFriend</button>
+		</div>
+	</div>
+
+
+</div>
+
+<div id="bio">
+	<div id="birth_place">
+		<span>Place of Birth: </span>
+		<span>United States</span>
+	</div>
+
+	<div id="work_place">
+		<span>Place of work:  </span>
+		<span>45th president of  US</span>
+	</div>
+
+	<div id="college">
+		<span>Went in:  </span>
+		<span>Stanford</span>
+	</div>
+
+	<div id="relationship">
+		<span>relationship status:  </span>
+		<span>single</span>
+	</div>
+
+	<button id="edit_profile_info">Edit</button>
+</div>
+
+<script id="post_template" type="text/x-handlebars-template">
+	<div class="post">
+		<div class="postHeader  ">
+			<img src="images/hilary.jpg" >
+			<a href = "#!/homepage/{{creatorUserName}}">{{creatorUserName}}</a>
+			<span  id="date_container">{{date}}</span>
+
+		</div>
+		<div class="postText">
+			{{text}}
+		</div>
+
+		<div class = "postIcons">
+			<input type="image" src="images/like.png" /><span>Like</span>
+			<input type="image" src="images/comment.png" /><span>Comment</span>
+			<input type="image" src="images/share.png" /><span>Share</span>
+
+		</div>
+
+		<div class="postReply">
+			<textarea  class="postComment" placeholder="write comment" id={{id}}></textarea>
+			<div class="post_comments_container" >
+
+			</div>
+		</div>
+
+	</div>
+</script>
+
+<script id="post_comment_template" type="text/x-handlebars-template">
+	<div class="comment">
+		<a href="#!/homepage/{{creatorUserName}}">{{creatorUserName}}</a>
+		<span class = "date_container">{{createDate}}</span>
+		<br/>
+		<br/>
+		<div>{{text}}</div>
+	</div>
+</script>
+
+
+<div id="posts">
+	<div id="makePost">
+		<img src="images/trump.jfif">
+
+		<textarea   rows="4" cols="54" placeholder="write you post here" id="post_text"></textarea>
+		<button id="publishPost">Post</button>
+		<button id="clearPost">Clear</button>
+	</div>
+
+	<div id="posts-container">
+
+
+	</div>
+
+</div>
+
+<script id="friends_template" type="text/x-handlebars-template">
+	<div class = "friend">
+		<div class="friendHeader">
+			<img src="images/obama.jpg">
+			<a href="#!/homepage/{{username}}" data-navigo>{{username}}</a>
+		</div>
+	</div>
+</script>
+<div id="friends_container">
+	<fieldset id = "friends">
+		<legend>Friends:</legend>
+
+	</fieldset>
+
+</div>
+
+<script>
+	document.querySelector("#already_friends_container").addEventListener('mouseover',function (evt) {
+		console.log("sd");
+		document.getElementById("already_friends_options").style.display = "unset";
+	});
+
+	document.querySelector("#already_friends_container").addEventListener('mouseout',function (evt) {
+		console.log("out");
+		document.getElementById("already_friends_options").style.display = "none";
+	});
+</script>
+<!--<script src="js/homepage.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->

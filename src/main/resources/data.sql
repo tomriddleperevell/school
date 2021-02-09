@@ -6,7 +6,7 @@ insert into user_authorities(user_id,authority_id)
 select u.id,au.id
 from users u,authorities au;
 
-insert into schools(id,name) value (1,'ფიზმათი');
+insert into schools(id, name, principal_id, active, city_id, region_id, number) values (1,'fizmat', 1, 1, 1, 1, 41);
 insert into teachers(id, first_name, last_name, birth_date, personal_no, gender, active, school_id) values
 (1, 'david', 'nozadze', '1080-01-01', '01234567', 0, true, 1),
 (2, 'bachuki', 'xizaneishvili', '1978-04-05', '012345679', 0, true, 1);
@@ -25,3 +25,11 @@ insert into subjects(id, name, active, schedule_id, teacher_id) values
 
 insert into principals(id, first_name, last_name, birth_date, personal_no, gender, active, years_in_office) value
 (1, 'genadi', 'margvelashvili', '1976-01-01', '1233212', 0, true, 4);
+
+insert into regions(id, name, active) values
+(1, 'imereti', 1),
+(2, 'qartli', 1);
+
+insert into cities (id, name, active)
+values (1, 'qutaisi', 1), (2, 'tbilisi', 1);
+
